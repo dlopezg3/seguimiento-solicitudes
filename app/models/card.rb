@@ -1,6 +1,4 @@
 class Card < ApplicationRecord
-  require 'net/http'
-  require 'json'
 
   def self.fetch_trello_cards
     url = "https://api.trello.com/1/boards/5ec56063edc3f53f0c17f299/cards?key=#{ENV['TRELLO_KEY']}&token=#{ENV['TRELLO_TOKEN']}"
