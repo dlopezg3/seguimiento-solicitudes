@@ -17,9 +17,14 @@ module CardsHelper
   end
 
   def card_responsable(card, board_members)
-    card_members = board_members.select { |member, value|  board_members.include? (member) }
-    return "" if card_members.empty?
+    card_members = card["idMembers"]
+    card_members_names = []
 
-    card_members.map{|member| member["fullName"]}.reduce("")
+    card_members.each do |card_member|
+      board_members.each do |board_member|
+        card_members_names << board_member["fullName"] if board_member["id"] == card_member
+      end
+    end
+    card_members_names.join("")
   end
 end
