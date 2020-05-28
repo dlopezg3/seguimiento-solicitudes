@@ -1,22 +1,24 @@
 <card class="card">
   <div class="grid">
     <div class="card-content p-3">
-      <div class="card-title">
-        Secretaría de desarrollo economico
+      <div class="card-objective d-flex align-items-center mb-3">
+        <div class="icon pr-2">
+          <%= image_tag('icons/aim.svg', width: 24, height: 24) %>
+        </div>
+        <%= card["name"] %>
       </div>
-      <div class="card-subtitle">
-        Subtitulo
-      </div>
-      <div class="card-fecha-solicitud">
-        Fecha de solicitud: 28-05-2020
+      <div class="text-center">
+        <div class="card-secretary">
+          <%= card["labels"].first["name"] %>
+        </div>
+        <div class="card-subtitle">
+          <%= card["custom_info"]["Dependencia"]  %>
+        </div>
+        <div class="card-fecha-solicitud">
+          Fecha de solicitud: <%= convert_utc_date_to_local(card["custom_info"]["Fecha de solicitud"]) %>
+        </div>
       </div>
       <div class="card-bottom mt-3">
-        <div class="card-objective d-flex align-items-center">
-          <div class="icon pr-2">
-            <%= image_tag('icons/aim.svg', width: 24, height: 24) %>
-          </div>
-          Objetivo de la solicitud
-        </div>
         <div class="d-flex justify-content-between mt-3">
           <div class="card-bottom-left">
             <div class="d-flex estado mb-1 align-items-center">
@@ -27,7 +29,7 @@
                 <div class="help-text">
                   Estado:
                 </div>
-                Recibida
+                TODO
               </div>
             </div>
             <div class="col-xs-6 d-flex solicitante align-items-center">
@@ -38,7 +40,7 @@
                 <div class="help-text">
                   Solicitante:
                 </div>
-                Lina González
+                <%= card["custom_info"]["Funcionario"]  %>
               </div>
             </div>
           </div>
@@ -51,7 +53,7 @@
                 <div class="help-text">
                   Fecha cambio estado:
                 </div>
-                25-02-2020
+                <%= convert_utc_date_to_local(card["dateLastActivity"])  %>
               </div>
             </div>
             <div class="col-xs-6 d-flex responsable align-items-center">
@@ -62,14 +64,15 @@
                 <div class="help-text">
                   Responsable:
                 </div>
-                Daniel López
+                TODO
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="card-status-color">
+    <div style="background-color: lime;" >
+      <!-- TODO -->
     </div>
   </div>
 </card>
