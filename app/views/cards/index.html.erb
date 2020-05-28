@@ -2,7 +2,7 @@
   <div class="row">
     <% @cards.each do |card| %>
       <div class="col-xs-12 col-sm-6">
-        <%= render "card", { card: card } %>
+        <%= render "card", { card: card, list: list_for_card(@lists, card) } %>
       </div>
     <% end %>
   </div>
