@@ -29,7 +29,7 @@
                 <div class="help-text">
                   Estado:
                 </div>
-                TODO
+                <%= list["name"] %>
               </div>
             </div>
             <div class="col-xs-6 d-flex solicitante align-items-center">
@@ -40,7 +40,9 @@
                 <div class="help-text">
                   Solicitante:
                 </div>
-                <%= card["custom_info"]["Funcionario"]  %>
+                <div class="card-person-name">
+                  <%= card["custom_info"]["Funcionario"]  %>
+                </div>
               </div>
             </div>
           </div>
@@ -64,15 +66,16 @@
                 <div class="help-text">
                   Responsable:
                 </div>
-                TODO
+                <div class="card-person-name">
+                  <%= card_responsable(card, @members) %>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div style="background-color: lime;" >
-      <!-- TODO -->
+    <div class="card-status-color" style="background-color: <%= status_color(list["name"]) %>;" >
     </div>
   </div>
 </card>
