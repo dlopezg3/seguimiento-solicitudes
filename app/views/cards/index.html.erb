@@ -1,7 +1,9 @@
-<div class="row">
-  <% @cards.each do |card| %>
-    <div class="col-xs-12 col-sm-6">
-      <%= render "card" %>
-    </div>
-  <% end %>
+<div class="container">
+  <div class="row">
+    <% @cards.each do |card| %>
+      <div class="col-xs-12 col-sm-6">
+        <%= render "card", { card: card } %>
+      </div>
+    <% end %>
+  </div>
 </div>
