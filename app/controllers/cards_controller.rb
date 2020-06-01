@@ -12,8 +12,16 @@ class CardsController < ApplicationController
 
   def set_filtered_cards
     @cards = Card.sort_by_date(Card.fetch_trello_cards)
+    @secretarias = secretarias_array
     return @cards if params.empty?
 
+    @secretarias = secretarias_array
     @cards = Card.secretary_filter(@cards, params.slice(:secretaria)) unless params["secretaria"].nil?
+  end
+
+  def secretarias_array
+    @cards.reject { |card| card["custom_info"]["Secretaría"].nil?}
+          .map!   { |card| card["custom_info"]["Secretaría"] }
+          .uniq
   end
 end
