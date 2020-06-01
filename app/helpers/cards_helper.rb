@@ -33,4 +33,10 @@ module CardsHelper
 
     params["secretaria"]
   end
+
+  def secretarias_array(cards)
+    cards.reject { |card| card["custom_info"]["Secretaría"].nil?}
+         .map!   { |card| card["custom_info"]["Secretaría"] }
+         .uniq
+  end
 end
