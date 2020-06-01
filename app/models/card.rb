@@ -11,6 +11,11 @@ class Card < ApplicationRecord
     cards_array = cards_array.sort_by { |hash| hash["dateLastActivity"] }.reverse!
   end
 
+  def self.secretary_filter(cards, params)
+    secretaria = params["secretaria"]
+    cards = cards.select { |card| card["custom_info"]["Secretaría"] == secretaria }
+  end
+
   private
 
   def self.separate_description_array(cards_array)
