@@ -27,4 +27,10 @@ module CardsHelper
     end
     card_members_names.join("")
   end
+
+  def active_filter(params)
+    return "Secretarías" if params["secretaria"].nil?
+
+    params["secretaria"]
+  end
 end
