@@ -1,8 +1,11 @@
-<%= link_to "Ver todas", cards_path, class:"dropdown-item" %>
-<% @secretarias.each do |sec| %>
-  <% if controller_name == "cards" %>
+<% if controller_name == "cards" %>
+  <%= link_to "Ver todas", cards_path, class:"dropdown-item" %>
+  <% @secretarias.each do |sec| %>
     <%= link_to sec, cards_path(secretaria: sec), class:"dropdown-item" %>
-  <% elsif controller_name == "board_stats" %>
+  <% end %>
+<% elsif controller_name == "board_stats" %>
+  <%= link_to "Ver todas", board_stats_path, class:"dropdown-item" %>
+  <% @secretarias.each do |sec| %>
     <%= link_to sec, board_stats_path(secretaria: sec), class:"dropdown-item" %>
   <% end %>
 <% end %>
