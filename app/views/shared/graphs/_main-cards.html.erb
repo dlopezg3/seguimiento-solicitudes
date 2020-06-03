@@ -1,24 +1,52 @@
-<h5 class="sub-title text-center"># solicitudes</h5>
+<h5 class="sub-title text-center">Estado de solicitudes</h5>
 <div class="stats-main-cards">
   <div class="row">
-    <div class="col-6 col-md-3">
-      <div class="card">
-        Holi
+    <div class="col-6 col-md-3 p-2">
+      <div class="card stats-card m-0 ">
+        <h2>
+          <%= status_hash["Accionada"]  %>
+        </h2>
+        <div class="card-text">
+          <%= pluralize(status_hash, "Accionada") %>
+        </div>
+        <div class="card-status-color stats-card-status card-background-green" >
+        </div>
       </div>
     </div>
-    <div class="col-6 col-md-3">
-      <div class="card">
-        Holi
+    <div class="col-6 col-md-3 p-2">
+      <div class="card stats-card m-0 ">
+        <h2>
+          <%= status_hash["Nueva solicitud"] + status_hash["Recibida"] + status_hash["Revisada"] %>
+        </h2>
+        <div class="card-text">
+          <%= pluralize(status_hash, "Pendiente") %>
+        </div>
+        <div class="card-status-color stats-card-status card-background-yellow" >
+        </div>
       </div>
     </div>
-    <div class="col-6 col-md-3">
-      <div class="card">
-        Holi
+    <div class="col-6 col-md-3 p-2">
+      <div class="card stats-card m-0 ">
+        <h2>
+          <%= status_hash["Rechazada"]  %>
+        </h2>
+        <div class="card-text">
+          <%= pluralize(status_hash, "Rechazada") %>
+        </div>
+        <div class="card-status-color stats-card-status card-background-red" >
+        </div>
       </div>
     </div>
-    <div class="col-6 col-md-3">
-      <div class="card">
-        Holi
+    <div class="col-6 col-md-3 p-2">
+      <div class="card stats-card m-0 ">
+        <h2>
+          <%= @cards.size %>
+        </h2>
+        <div class="card-text">
+          En total
+        </div>
+        <div class="card-status-color stats-card-status card-background-gray">
+        </div>
       </div>
     </div>
   </div>

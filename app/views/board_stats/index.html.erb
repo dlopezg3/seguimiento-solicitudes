@@ -8,14 +8,11 @@
     </button>
     <div class="collapse" id="collapseExample">
       <div class="card card-body">
-        <%= render "shared/filter-link", cards: @secretarias %>
+        <%= render "shared/filter-link", secretarias: @secretarias %>
       </div>
     </div>
   </div>
   <div class="graph-card">
-    <%= render "shared/graphs/main-cards" %>
-  </div>
-  <div class="graph-card">
-    <%= render "shared/graphs/main-cards" %>
+    <%= render "shared/graphs/main-cards", status_hash: status_hash(@cards, @lists) %>
   </div>
 </div>
