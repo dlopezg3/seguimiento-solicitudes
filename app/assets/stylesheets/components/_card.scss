@@ -38,3 +38,21 @@
 .card-body {
   width: 50vw;
 }
+.card-background-red {
+  background-color: $alert-red;
+}
+.card-background-yellow {
+  background-color: $alert-yellow;
+}
+.card-background-green {
+  background-color: $alert-green;
+}
+.card-background-gray {
+  background-color: $gray;
+}
+.stats-card-status {
+  position: absolute;
+  width: 5px;
+  height: 100%;
+  right: 0px;
+}
