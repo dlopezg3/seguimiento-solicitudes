@@ -1,0 +1,47 @@
+<h5 class="sub-title text-center mb-4">Resumen de solicitudes</h5>
+<div class="stat-line">
+  <div class="d-flex justify-content-between stat-row">
+    <div class="stat-description">
+      Total Solicitudes
+    </div>
+    <div class="stat-value">
+      <%= @cards.size  %>
+    </div>
+  </div>
+  <hr>
+</div>
+<div class="stat-line">
+  <div class="d-flex justify-content-between stat-row">
+    <div class="stat-description">
+      Promedio Solicitudes día
+    </div>
+    <div class="stat-value">
+      <%= average_by_period_time("days") %>
+    </div>
+  </div>
+  <hr>
+</div>
+<div class="stat-line">
+  <div class="d-flex justify-content-between stat-row">
+    <div class="stat-description">
+      Porcentaje de ejecución
+    </div>
+    <div class="stat-value">
+      <%= calculate_ratio_by_period("days", "Accionada") %>
+    </div>
+  </div>
+  <hr>
+</div>
+<div class="stat-line">
+  <div class="d-flex justify-content-between stat-row">
+    <div class="stat-description">
+      Porcentaje de rechazo
+    </div>
+    <div class="stat-value">
+      <%= calculate_ratio_by_period("days", "Rechazada") %>
+    </div>
+  </div>
+  <hr>
+</div>
+
+
