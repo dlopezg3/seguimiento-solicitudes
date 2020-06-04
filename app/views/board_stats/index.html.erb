@@ -1,6 +1,6 @@
 <div class="container">
   <div class="filters pt-2 pt-sm-4">
-    <button class="btn btn-secondary btn-filters" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    <button class="btn btn-filters" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
       <span class="d-flex align-items-center justify-content-around">
         <%= active_filter(params)  %>
         <%= image_tag 'icons/down-arrow.svg', width: 12, height: 12 %>
@@ -14,5 +14,8 @@
   </div>
   <div class="graph-card">
     <%= render "shared/graphs/main-cards", status_hash: status_hash(@cards, @lists) %>
+  </div>
+  <div class="graph-card card p-2">
+    <%= render "shared/graphs/solicitudes_distribution", secretarias_hash: secretarias_hash(@cards) %>
   </div>
 </div>
