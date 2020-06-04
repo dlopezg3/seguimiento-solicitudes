@@ -38,7 +38,7 @@ module BoardStatsHelper
       list_for_card(card)["name"] == status
     end
 
-    "#{compute_ratio(counter_by_date(filtered_cards), counter) * factor}#{percentage} "
+    "#{compute_ratio(counter_by_date(filtered_cards), counter, factor)}#{percentage} "
   end
 
   def count_totals(period = "days")
@@ -62,9 +62,9 @@ module BoardStatsHelper
     end
   end
 
-  def compute_ratio(dividen, divisor)
+  def compute_ratio(dividen, divisor, factor = 1)
     return "Na" unless divisor > 0
 
-    (dividen / divisor.to_f).round(2)
+    (dividen / divisor.to_f * factor).round(2)
   end
 end
