@@ -5,7 +5,7 @@
       Total Solicitudes
     </div>
     <div class="stat-value">
-      <%= @cards.size  %>
+      <%= count_totals("days")  %>
     </div>
   </div>
   <hr>
@@ -27,7 +27,7 @@
       Porcentaje de ejecución
     </div>
     <div class="stat-value">
-      <%= calculate_ratio_by_period("days", "Accionada") %>
+      <%= calculate_ratio_by_period("Accionada", "days") %>
     </div>
   </div>
   <hr>
@@ -38,7 +38,7 @@
       Porcentaje de rechazo
     </div>
     <div class="stat-value">
-      <%= calculate_ratio_by_period("days", "Rechazada") %>
+      <%= calculate_ratio_by_period("Rechazada", "days") %>
     </div>
   </div>
   <hr>
