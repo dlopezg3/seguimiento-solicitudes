@@ -1,7 +1,7 @@
 <h5 class="sub-title text-center">Estado de solicitudes</h5>
 <div class="stats-main-cards">
   <div class="row">
-    <div class="col-6 col-md-3 p-2">
+    <div class="col-6 col-md-3 pt-2 pb-2">
       <div class="card stats-card m-0 ">
         <h2>
           <%= status_hash["Accionada"]  %>
@@ -13,7 +13,7 @@
         </div>
       </div>
     </div>
-    <div class="col-6 col-md-3 p-2">
+    <div class="col-6 col-md-3 pt-2 pb-2">
       <div class="card stats-card m-0 ">
         <h2>
           <%= status_hash["Nueva solicitud"] + status_hash["Recibida"] + status_hash["Revisada"] %>
@@ -25,7 +25,7 @@
         </div>
       </div>
     </div>
-    <div class="col-6 col-md-3 p-2">
+    <div class="col-6 col-md-3 pt-2 pb-2">
       <div class="card stats-card m-0 ">
         <h2>
           <%= status_hash["Rechazada"]  %>
@@ -37,7 +37,7 @@
         </div>
       </div>
     </div>
-    <div class="col-6 col-md-3 p-2">
+    <div class="col-6 col-md-3 pt-2 pb-2">
       <div class="card stats-card m-0 ">
         <h2>
           <%= @cards.size %>
