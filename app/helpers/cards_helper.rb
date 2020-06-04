@@ -4,8 +4,8 @@ module CardsHelper
     date = string_date.to_datetime.in_time_zone("Bogota").to_date
   end
 
-  def list_for_card(lists, card)
-    lists.find {|key, value| key["id"] == card["idList"]}
+  def list_for_card(card)
+    @lists.find {|key, value| key["id"] == card["idList"]}
   end
 
   def status_color(list_name)
@@ -13,7 +13,7 @@ module CardsHelper
     return "#DF3B46" if list_name == "Recibida"
     return "#FACD3A" if list_name == "Revisada"
     return "#00A878" if list_name == "Accionada"
-    return "#00A878"
+    return "#545D63"
   end
 
   def card_responsable(card, board_members)
