@@ -13,9 +13,12 @@
     </div>
   </div>
   <div class="graph-card">
-    <%= render "shared/graphs/main-cards", status_hash: status_hash(@cards, @lists) %>
+    <%= render "shared/graphs/main-cards", status_hash: status_hash %>
   </div>
   <div class="graph-card card p-2">
-    <%= render "shared/graphs/solicitudes_distribution", secretarias_hash: secretarias_hash(@cards) %>
+    <%= render "shared/graphs/solicitudes-distribution", secretarias_hash: secretarias_hash %>
+  </div>
+  <div class="graph-card card p-2">
+    <%= render "shared/graphs/summary-table", status_hash: status_hash %>
   </div>
 </div>
