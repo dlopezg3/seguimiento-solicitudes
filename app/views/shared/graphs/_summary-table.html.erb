@@ -1,11 +1,17 @@
-<h5 class="sub-title text-center mb-4">Resumen de solicitudes</h5>
+<div class="text-center mb-2">
+  <h5 class="card-title ">Resumen de solicitudes</h5>
+  <div class="card-explanatory-title">
+   Desde el <%= 7.send("weeks").ago.to_date  %>
+  </div>
+</div>
 <div class="stat-line">
+  <hr>
   <div class="d-flex justify-content-between stat-row">
     <div class="stat-description">
       Total Solicitudes
     </div>
     <div class="stat-value">
-      <%= count_totals("days")  %>
+      <%= count_totals("weeks")  %>
     </div>
   </div>
   <hr>
@@ -13,10 +19,10 @@
 <div class="stat-line">
   <div class="d-flex justify-content-between stat-row">
     <div class="stat-description">
-      Promedio Solicitudes día
+      Promedio Solicitudes / día
     </div>
     <div class="stat-value">
-      <%= average_by_period_time("days") %>
+      <%= average_by_period_time("weeks") %>
     </div>
   </div>
   <hr>
@@ -27,7 +33,7 @@
       Porcentaje de ejecución
     </div>
     <div class="stat-value">
-      <%= calculate_ratio_by_period("Accionada", "days") %>
+      <%= calculate_ratio_by_period("Accionada", "weeks") %>
     </div>
   </div>
   <hr>
@@ -38,7 +44,7 @@
       Porcentaje de rechazo
     </div>
     <div class="stat-value">
-      <%= calculate_ratio_by_period("Rechazada", "days") %>
+      <%= calculate_ratio_by_period("Rechazada", "weeks") %>
     </div>
   </div>
   <hr>
