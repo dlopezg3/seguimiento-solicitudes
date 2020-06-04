@@ -4,10 +4,6 @@ module CardsHelper
     date = string_date.to_datetime.in_time_zone("Bogota").to_date
   end
 
-  def list_for_card(card)
-    @lists.find {|key, value| key["id"] == card["idList"]}
-  end
-
   def status_color(list_name)
     return "#DF3B46" if list_name == "Nuevas solicitudes"
     return "#DF3B46" if list_name == "Recibida"
@@ -26,11 +22,5 @@ module CardsHelper
       end
     end
     card_members_names.join("")
-  end
-
-  def active_filter(params)
-    return "Secretarías" if params["secretaria"].nil?
-
-    params["secretaria"]
   end
 end
