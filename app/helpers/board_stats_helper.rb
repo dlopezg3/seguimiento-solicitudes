@@ -22,25 +22,33 @@ module BoardStatsHelper
     secretarias_hash
   end
 
-  def average_by_period_time(period)
+  def average_by_period_time(period = "days")
     @period_range = set_period_range(period)
 
-    (counter_by_date(@cards) / @days).round(2)
     compute_ratio(counter_by_date(@cards), @days)
   end
 
-  def calculate_ratio_by_period(period, status)
+  def calculate_ratio_by_period(status, period = "days")
     @period_range = set_period_range(period)
+    counter = counter_by_date(@cards)
+    factor = counter.positive? ? 100 : 1
+    percentage = counter.positive? ? "%" : ""
 
     filtered_cards = @cards.select do |card|
       list_for_card(card)["name"] == status
     end
-    "#{compute_ratio(counter_by_date(filtered_cards),counter_by_date(@cards)) * 100}% "
+
+    "#{compute_ratio(counter_by_date(filtered_cards), counter) * factor}#{percentage} "
+  end
+
+  def count_totals(period = "days")
+    @period_range = set_period_range(period)
+    counter_by_date(@cards)
   end
 
   private
 
-  def set_period_range(period = "days")
+  def set_period_range(period)
     start_date = 7.send(period).ago.to_date
     end_date   = 0.send(period).ago.to_date
     @days = (end_date - start_date).to_f
@@ -55,6 +63,8 @@ module BoardStatsHelper
   end
 
   def compute_ratio(dividen, divisor)
+    return "Na" unless divisor > 0
+
     (dividen / divisor.to_f).round(2)
   end
 end
