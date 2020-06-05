@@ -1,4 +1,5 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-gob">
+<div class="navbar navbar-expand-sm navbar-light navbar-gob"
+     data-controller="navbar">
   <%= link_to "#", class: "navbar-brand" do %>
     <%= image_tag "logo_gob.jpg" %>
   <% end %>
@@ -8,11 +9,15 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-        <li class="nav-item active">
-          <%= link_to "Feed", root_path, class: "nav-link" %>
+        <li class="nav-item <%= toggle_active_class('cards')  %>"
+            data-target="navbar.li"
+            data-action="click->navbar#toggleActiveClass">
+            <%= link_to "Feed", root_path, class: "nav-link" %>
         </li>
-        <li class="nav-item">
-          <%= link_to "Estadísticas", board_stats_path, class: "nav-link" %>
+        <li class="nav-item  <%= toggle_active_class('board_stats')  %>"
+            data-target="navbar.li"
+            data-action="click->navbar#toggleActiveClass">
+            <%= link_to "Estadísticas", board_stats_path, class: "nav-link" %>
         </li>
       <% else %>
         <li class="nav-item">
