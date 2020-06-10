@@ -21,7 +21,7 @@ class Card < ApplicationRecord
   def self.separate_description_array(cards_array)
     cards_array.each do |hash|
       desc_hash = {}
-      hash["desc"].split("\n").each do |element|
+      hash["desc"].gsub("**", "").gsub("\n\n", "\n").split("\n").each do |element|
         hash["custom_info"] = create_description_hash(element, desc_hash)
       end
     end
