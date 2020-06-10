@@ -1,7 +1,7 @@
 module CardsHelper
 
   def convert_utc_date_to_local(string_date)
-    date = string_date.to_datetime.in_time_zone("Bogota").to_date
+    string_date.to_datetime.in_time_zone("Bogota").to_date unless string_date.nil?
   end
 
   def status_color(list_name)
