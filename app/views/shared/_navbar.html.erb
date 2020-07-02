@@ -8,7 +8,7 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <%# if user_signed_in? %>
+      <% if user_signed_in? %>
         <li class="nav-item <%= toggle_active_class('cards')  %>"
             data-target="navbar.li"
             data-action="click->navbar#toggleActiveClass">
@@ -19,11 +19,14 @@
             data-action="click->navbar#toggleActiveClass">
             <%= link_to "Estadísticas", board_stats_path, class: "nav-link" %>
         </li>
-      <%# else %>
-        <!-- <li class="nav-item"> -->
-          <%#= link_to "Login", new_user_session_path, class: "nav-link" %>
-        <!-- </li> -->
-      <%# end %>
+        <li class="nav-item">
+          <%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete, class: "nav-link" %>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to "Iniciar Sesión", new_user_session_path, class: "nav-link" %>
+        </li>
+      <% end %>
     </ul>
   </div>
 </div>
