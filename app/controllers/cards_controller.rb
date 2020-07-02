@@ -1,6 +1,6 @@
 class CardsController < ApplicationController
 
-  skip_before_action :authenticate_user!
+  # skip_before_action :authenticate_user!
   before_action :set_filtered_cards
 
   def index
