@@ -1,7 +1,9 @@
 <% if controller_name == "cards" %>
   <%= link_to "Ver todas", cards_path, class:"dropdown-item" %>
   <% @secretarias.each do |sec| %>
-    <%= link_to sec, cards_path(secretaria: sec), class:"dropdown-item" %>
+    <%= link_to cards_path(secretaria: sec), class:"dropdown-item" do %>
+      <%= cut_card_secretary(sec) %>
+    <% end %>
   <% end %>
 <% elsif controller_name == "board_stats" %>
   <%= link_to "Ver todas", board_stats_path, class:"dropdown-item" %>
