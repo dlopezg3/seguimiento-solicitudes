@@ -1,6 +1,6 @@
 <% if controller_name == "cards" %>
   <%= link_to "Ver todas", cards_path, class:"dropdown-item" %>
-  <% @secretarias.each do |sec| %>
+  <% @secretarias.sort.each do |sec| %>
     <%= link_to cards_path(secretaria: sec), class:"dropdown-item" do %>
       <%= cut_card_secretary(sec) %>
     <% end %>
