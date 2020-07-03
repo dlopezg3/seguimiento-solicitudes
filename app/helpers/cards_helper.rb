@@ -23,4 +23,10 @@ module CardsHelper
     end
     card_members_names.join("")
   end
+
+  def cut_card_secretary(secretary_name)
+    return secretary_name if secretary_name.size < 29
+
+    "#{secretary_name[0..29]}..."
+  end
 end
