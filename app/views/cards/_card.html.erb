@@ -14,7 +14,7 @@
         <div class="card-subtitle">
           <%= card["custom_info"]["Dependencia"]  %>
         </div>
-        <div class="card-fecha-solicitud">
+        <div class="card-fecha-solicitud card-task-detail">
           Fecha de solicitud: <%= convert_utc_date_to_local(card["custom_info"]["Fecha de solicitud"]) %>
         </div>
       </div>
@@ -29,7 +29,9 @@
                 <div class="help-text">
                   Estado:
                 </div>
-                <%= list["name"] %>
+                <div class="card-task-detail">
+                  <%= list["name"] %>
+                </div>
               </div>
             </div>
             <div class="col-xs-6 d-flex solicitante align-items-center">
@@ -40,7 +42,7 @@
                 <div class="help-text">
                   Solicitante:
                 </div>
-                <div class="card-person-name">
+                <div class="card-person-name card-task-detail">
                    <%= card["custom_info"]["Funcionario"].split('@')[0]  %>
                 </div>
               </div>
@@ -55,7 +57,9 @@
                 <div class="help-text">
                   Fecha cambio estado:
                 </div>
-                <%= convert_utc_date_to_local(card["dateLastActivity"])  %>
+                <div class="card-task-detail">
+                  <%= convert_utc_date_to_local(card["dateLastActivity"])  %>
+                </div>
               </div>
             </div>
             <div class="col-xs-6 d-flex responsable align-items-center">
@@ -66,7 +70,7 @@
                 <div class="help-text">
                   Responsable:
                 </div>
-                <div class="card-person-name">
+                <div class="card-person-name card-task-detail">
                   <%= card_responsable(card, @members) %>
                 </div>
               </div>
